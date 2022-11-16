@@ -1,78 +1,127 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { login } from "../../redux/reducers/auth/authSlice";
+import { useSelector, useDispatch } from "react-redux";
 const Login = () => {
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  const [usuario, setUsuario] = useState("");
+  const [clave, setClave] = useState("");
+
+  useEffect(() => {
+    if (user) {
+      navigate('/cuenta/user-profile')
+    }
+  }, [navigate, user]);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(login({ usuario, clave }));
+  };
   return (
     <>
-      <div className="contain">
-        <div className="bg-slate-50 max-w-lg  mx-auto  px-6 py-7 shadow rounded-lg overflow-hidden ">
-          <h2 className="text-sky-600 text-4xl  text-center py-4 font-medium mb-1 capitalize">
-            Login
-          </h2>
-          <form>
-            <div className="space-y-2">
-              <div>
-                <label className="text-gray-700  text-xl mb-2 block" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  placeholder="youremail.@domain.com"
-                />
-              </div>
-              <div>
-                <label className="text-gray-700 text-xl mb-2 block " htmlFor="password">
-                  Password
-                </label>
-                <input
-                  id="password"
-                  type="password"
-                  name="password"
-                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  placeholder="*******"
-                />
-              </div>
-            </div>
-            <div className="flex items-center justify-between mt-6">
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  name="remember"
-                  id="remember"
-                  className="text-primary focus:ring-0 rounded-sm cursor-pointer"
-                />
-                <label className="text-gray-600 ml-3 cursor-pointer text-lg">
-                  Remember me
-                </label>
-              </div>
-            </div>
-            <div className="mt-4">
+      <div className="text-center mt-10">
+        <div className="flex items-center justify-center ">
+          <svg
+            fill="none"
+            viewBox="0 0 24 24"
+            className="w-12 h-12 text-blue-500"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+            />
+          </svg>
+        </div>
+        <h2 className="text-4xl text-black font-bold tracking-tight">
+          Inicia Sesión
+        </h2>
+        <span className="text-sm">
+          <Link
+            to="/cuenta/registrar"
+            className="text-blue-500  text-2xl font-bold block text"
+          >
+            Crear cuenta
+          </Link>
+        </span>
+      </div>
+      <div className="flex justify-center  mx-4 md:mx-0 px-7 py-12">
+        <form
+          className="w-full max-w-xl bg-white rounded-lg shadow-md p-9"
+          onSubmit={submitHandler}
+        >
+          <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="w-full md:w-full px-3 mb-6">
+              <label
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="email"
+              >
+                Email address
+              </label>
               <input
-                type="submit"
-                value="Iniciar Sesion"
-                className="bg-sky-700 mb-5 w-full py-3 text-white uppercase font-bold rounded
-                    hover:cursor-pointer hover:bg-sky-800 transition-colors"
+                type="email"
+                id="email"
+                className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
+                name="usuario"
+                value={usuario}
+                onChange={(e) => setUsuario(e.target.value)}
+                required
               />
             </div>
-          </form>
-
-          <nav className="lg:flex lg:justify-between">
-            <Link
-              className=" block text-center my-2 px-1 text-sky-600  text-lg"
-              to="/auth/registrar"
-            >
-              Registrate
-            </Link>
-
-            <Link
-              className=" block text-center my-2  mx-2 text-sky-600  text-lg"
-              to="/auth/olvide-password"
-            >
-              ¿Perdiste tu contraseña?
-            </Link>
-          </nav>
-        </div>
+            <div className="w-full md:w-full px-3 mb-6">
+              <label
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="password"
+              >
+                Password
+              </label>
+              <input
+                type="text"
+                id="password"
+                className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
+                name="clave"
+                value={clave}
+                onChange={(e) => setClave(e.target.value)}
+                required
+              />
+            </div>
+            <div className="w-full flex items-center justify-between px-3 mb-3 ">
+              <label for="remember" className="flex items-center w-1/2">
+                <input
+                  type="checkbox"
+                  name=""
+                  id=""
+                  className="mr-1 bg-white shadow"
+                />
+                <span className="text-sm text-gray-700 pt-1">Remember Me</span>
+              </label>
+              <div className="w-1/2 text-right">
+                <a href="#" className="text-blue-500 text-sm tracking-tight">
+                  Forget your password?
+                </a>
+              </div>
+            </div>
+            <div className="w-full md:w-full px-3 mb-6">
+              <button
+                type="submit"
+                className="bg-sky-700 mb-5 w-full py-3
+                 text-white uppercase font-bold rounded
+                  hover:cursor-pointer hover:bg-sky-800 
+                  transition-colors"
+              >
+                Sign in
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </>
   );

@@ -1,0 +1,16 @@
+export { default as BreedCreate } from './Breed/BreedCreate';
+export { default as BreedEdit } from './Breed/BreedEdit';
+export { default as BreedList } from './Breed/BreedList';
+export { default as RemoveBreed } from './Breed/RemoveBreed';
+export { default as CreateCategory } from './Category/CreateCategory';
+export { default as EditCategory } from './Category/EditCategory';
+export { default as ListCategory } from './Category/ListCategory';
+export { default as RemoveCategory } from './Category/RemoveCategory';
+export { default as CityCraete } from './City/CityCraete';
+export { default as CityEdit } from './City/CityEdit';
+export { default as CityList } from './City/CityList';
+export { default as RemoveCity } from './City/RemoveCity';
+export { default as DepartmentCreate } from './Department/DepartmentCreate';
+export { default as DepartmentEdit } from './Department/DepartmentEdit';
+export { default as DepartmentList } from './Department/DepartmentList';
+export { default as RemoveDepartment } from './Department/RemoveDepartment';

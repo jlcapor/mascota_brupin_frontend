@@ -1,20 +1,13 @@
+import Hero from "../../components/sections/hero/Hero";
+import Contact from "../../components/sections/Contact";
 const Inicio = () => {
   return (
-    <h1>
-      fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
-      fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-      fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-      fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-      fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-      fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-      fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-      fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-      fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-      fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-      fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-      fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-      
-      </h1>
+    <>
+      <div className="bg-white  w-full">
+        <Hero />
+        <Contact />
+      </div>
+    </>
   );
 };
 export default Inicio;
