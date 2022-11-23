@@ -15,7 +15,7 @@ const Login = () => {
   
     useEffect(() => {
       if (user) {
-        navigate("/admin");
+        navigate("/admin/inicio");
       }
     }, [navigate, user]);
     const submitHandler = (e) => {

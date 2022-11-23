@@ -159,7 +159,7 @@ const NavBar = () => {
 
             <li>
               <Link
-                to="#"
+                to="/contact"
                 className="block py-2 pr-4 pl-3   hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0  lg:dark:hover:text-black text-lg"
               >
                 Contact

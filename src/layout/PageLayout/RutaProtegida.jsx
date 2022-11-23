@@ -15,12 +15,25 @@ const RutaProtegida = () => {
       </div>
     );
   }
+  let menu = "";
+  if (user.datos.rol === "Cliente") {
+    menu = <Sidebar />;
+  }else{
+    return (
+      <div className="unauthorized">
+        <h1>Unauthorized :(</h1>
+        <span>
+          <Navigate to="/admin/inicio" state={location} />;
+        </span>
+      </div>
+    );
+  }
   //container max-w-full h-full flex relative overflow-y-hidden
   return (
     <>
       <div className="bg-gray-200 min-h-screen">
         <div className="sm:flex min-h-screen">
-          <Sidebar />
+          {menu}
           <main className="w-full p-9">
             <Outlet />
           </main>

@@ -10,10 +10,10 @@ const ListadoSolicitudes = () => {
   const error = useSelector(getPetsError);
 
   useEffect(() => {
-    if (petStatus === "idle") {
+    
       dispatch(fetchPets());
-    }
-  }, [petStatus, dispatch]);
+
+  }, [dispatch]);
 
 
   let content;

@@ -1,7 +1,18 @@
-import React from "react";
+import { useCallback } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, reset } from "../../../../redux/reducers/auth/authSlice";
+import { resetAll } from "../../../../redux/reducers/pets/petsSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+
+  const logOut = useCallback(() => {
+    dispatch(logout());
+    dispatch(reset());
+    dispatch(resetAll());
+  }, [dispatch]);
+
   return (
     <>
       <header className="bg-white border-b border-gray-200 fixed z-30 w-full">
@@ -63,12 +74,13 @@ const Header = () => {
                   ></path>
                 </svg>
               </button>
-              <a
-                href="#"
+              <Link
+                to="/cuenta/login"
                 className="hidden sm:inline-flex ml-5 text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center mr-3"
+                onClick={logOut}
               >
                 Cerrar Sesion
-              </a>
+              </Link>
             </div>
           </div>
         </div>

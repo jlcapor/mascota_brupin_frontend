@@ -1,19 +1,8 @@
-import { useCallback } from "react";
-
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { logout, reset } from "../../../../redux/reducers/auth/authSlice";
-import { resetAll } from "../../../../redux/reducers/pets/petsSlice";
+import {useSelector } from "react-redux";
 const Sidebar = () => {
-  const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.auth);
   const { user: currentUser } = userInfo;
-
-  const logOut = useCallback(() => {
-    dispatch(logout());
-    dispatch(reset());
-    dispatch(resetAll());
-  }, [dispatch]);
 
   let content;
 
@@ -40,6 +29,33 @@ const Sidebar = () => {
               <span className="ml-3">Mascotas</span>
             </Link>
           </li>
+
+          <li>
+            <Link
+              to="#"
+              className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+            >
+              <span className="ml-3">Productos</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="#"
+              className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+            >
+              <span className="ml-3">Servicios</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="#"
+              className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+            >
+              <span className="ml-3">Planes</span>
+            </Link>
+          </li>
         </>
       );
     } else if (currentUser.datos.rol == "Asesor") {
@@ -56,6 +72,18 @@ const Sidebar = () => {
         </>
       );
     } else if (currentUser.datos.rol == "Cliente") {
+      content = (
+        <>
+          <li>
+            <Link
+              to="/admin/solicitud-afiliaciones"
+              className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+            >
+              <span className="ml-3">Solicitudes</span>
+            </Link>
+          </li>
+        </>
+      );
     }
   }
   return (
@@ -66,7 +94,7 @@ const Sidebar = () => {
             <ul className="space-y-2 pb-2  py-5">
               <li>
                 <Link
-                  to="/admin"
+                  to="/admin/inicio"
                   className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
                 >
                   <span className="ml-3">Home</span>

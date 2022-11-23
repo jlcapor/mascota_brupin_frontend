@@ -10,9 +10,7 @@ const PetList = () => {
   const error = useSelector(getPetsError);
 
   useEffect(() => {
-    if (petStatus === "idle") {
       dispatch(fetchPets());
-    }
   }, [petStatus, dispatch]);
 
   let content;
