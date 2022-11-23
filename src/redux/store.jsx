@@ -6,6 +6,7 @@ import petsReducer from "./reducers/pets/petsSlice";
 import modalReducer from "./reducers/iu/modalSlice";
 import alertaReducer from "./reducers/iu/alertaSlice";
 
+
 const rootReducer = combineReducers({
   auth: authReducer,
   users: usersReducer,

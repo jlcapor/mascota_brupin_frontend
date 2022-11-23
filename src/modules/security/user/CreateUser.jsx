@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { addNewUsers } from "../../../redux/reducers/users/usersSlice";
 import {
   mostrarAlerta,
@@ -41,7 +41,7 @@ const CreateUser = () => {
         setTelefono("");
         setCorreo("");
         setRol("");
-        navigate("/dashboard/lista-usuarios");
+        navigate("/admin/lista-usuarios");
       } catch (error) {
         const alerta = {
           msg: "Hubo un error",

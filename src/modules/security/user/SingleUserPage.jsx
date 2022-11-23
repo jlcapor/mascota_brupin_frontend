@@ -5,6 +5,8 @@ const SingleUserPage = () => {
   const { userId } = useParams();
   const user = useSelector((state) => selectUserById(state, userId));
 
-  return <div>SingleUserPage</div>;
+  return (
+  <div>SingleUserPage</div>
+  );
 };
 export default SingleUserPage;

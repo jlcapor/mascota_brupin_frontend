@@ -4,7 +4,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'regal-blue': '#243c5a',
+        primary: "#4A3AFF",
+      },
+      backgroundImage: {
+        Hero: "url('assets/img/mascotas.jpg')",
       },
     },
   },

@@ -9,8 +9,9 @@ import usersService from "../../../services/user.service";
 const usersAdapter = createEntityAdapter();
 
 const initialState = usersAdapter.getInitialState({
-  status: "idle",
+  status: "idle", //'idle' | 'loading' | 'succeeded' | 'failed'
   error: null,
+  count: 0,
 });
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
@@ -55,4 +56,9 @@ export const {
   selectById: selectUserById,
   selectIds: selectUserIds
 } = usersAdapter.getSelectors((state) => state.users);
+
+
+export const getUserStatus = (state) => state.users.status;
+export const getUserError = (state) => state.users.error;
+export const getCount = (state) => state.users.count;
 
