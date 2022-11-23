@@ -16,7 +16,7 @@ import ProfilePage from "./modules/Auth/Profile/PerfilPage";
 import CreateAddress from "./modules/Address/CreateAddress";
 import RevisarSolicitudes from "./modules/AfilicionMascota/RevisarSolicitudes";
 import SolicitarAfiliacion from "./modules/AfilicionMascota/SolicitarAfiliacion";
-import CreateContact from "./modules/contact/CreateContact";
+
 //Mascotas
 import PetList from "./modules/Admin/Pets/PetList";
 
