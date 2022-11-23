@@ -42,7 +42,6 @@ const CreateContact = () => {
               type="text"
               id="nombre"
               name="nombre"
-              onChange={handleChange}
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               required
             />
@@ -74,7 +73,6 @@ const CreateContact = () => {
               type="email"
               name="correo"
               id="correo"
-              onChange={handleChange}
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               required
             />
@@ -90,7 +88,6 @@ const CreateContact = () => {
               type="text"
               name="celular"
               id="celular"
-              onChange={handleChange}
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               required
             />

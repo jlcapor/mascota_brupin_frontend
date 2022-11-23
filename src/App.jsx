@@ -42,7 +42,6 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeLayout />}>
           <Route index element={<Inicio />} />
-          <Route path="contact" element={<CreateContact/>}/>
         </Route>
 
         <Route path="/cuenta" element={<HomeLayout />}>
