@@ -98,7 +98,6 @@ const petsSlice = createSlice({
       })
       .addCase(deletePet.fulfilled, (state, action) => {
         state.status = "idle";
-        console.log(action.payload)
         petsAdapter.removeOne(state, action.payload)
       })
 

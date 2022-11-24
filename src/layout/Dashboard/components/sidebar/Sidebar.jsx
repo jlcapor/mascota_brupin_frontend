@@ -69,6 +69,14 @@ const Sidebar = () => {
               <span className="ml-3">Solicitudes</span>
             </Link>
           </li>
+          <li>
+            <Link
+              to="/admin/contactos"
+              className="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group"
+            >
+              <span className="ml-3">Contactos</span>
+            </Link>
+          </li>
         </>
       );
     } else if (currentUser.datos.rol == "Cliente") {
@@ -82,6 +90,8 @@ const Sidebar = () => {
               <span className="ml-3">Solicitudes</span>
             </Link>
           </li>
+
+          
         </>
       );
     }

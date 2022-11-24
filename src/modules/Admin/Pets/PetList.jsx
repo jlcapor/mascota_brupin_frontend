@@ -11,7 +11,7 @@ const PetList = () => {
 
   useEffect(() => {
       dispatch(fetchPets());
-  }, [petStatus, dispatch]);
+  }, [dispatch]);
 
   let content;
   if (petStatus === 'loading') {

@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import ClienteAxios from "../config/clienteAxios";
 
 const createPet = async (data) => {
@@ -6,7 +5,6 @@ const createPet = async (data) => {
 };
 
 const updatePet = async (id, pet)=>{
-  console.log(id)
   return await ClienteAxios.put(`mascotas/${id}`, pet);
 }
 

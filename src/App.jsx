@@ -32,6 +32,7 @@ import LoginAdmin from "./modules/Security/auth/Login";
 //Asesor
 import ListadoSolicitudes from "./modules/EvaluarSolicitudes/ListadoSolicitudes";
 import ResolucionSolicitud from "./modules/EvaluarSolicitudes/ResolucionSolicitud";
+import ListContact from "./modules/Contact/ListContact";
 
 function App() {
   return (
@@ -73,6 +74,8 @@ function App() {
               path="resolucion-solicitud/:petId"
               element={<ResolucionSolicitud />}
             />
+
+            <Route path="contactos" element={<ListContact />} />
           </Route>
         </Route>
       </Routes>
