@@ -1,36 +1,39 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchPets, selectPetIds, getPetsStatus, getPetsError } from "../../redux/reducers/pets/petsSlice";
+import {
+  fetchPets,
+  selectPetIds,
+  getPetsStatus,
+  getPetsError,
+} from "../../redux/reducers/pets/petsSlice";
 import Solicitud from "./Solicitud";
 
 const ListadoSolicitudes = () => {
   const dispatch = useDispatch();
-  const orderedPetsIds  = useSelector(selectPetIds);
+  const orderedPetsIds = useSelector(selectPetIds);
   const petStatus = useSelector(getPetsStatus);
   const error = useSelector(getPetsError);
 
   useEffect(() => {
-    
-      dispatch(fetchPets());
-
+    dispatch(fetchPets());
   }, [dispatch]);
 
-
   let content;
-  if (petStatus === 'loading') {
+  if (petStatus === "loading") {
     content = <p>"Loading..."</p>;
-} else if (petStatus === 'succeeded') {
-    content = orderedPetsIds.map(petId => <Solicitud key={petId} petId={petId} />)
-} else if (petStatus === 'failed') {
+  } else if (petStatus === "succeeded") {
+    content = orderedPetsIds.map((petId) => (
+      <Solicitud key={petId} petId={petId} />
+    ));
+  } else if (petStatus === "failed") {
     content = <p>{error}</p>;
-}
+  }
   return (
     <>
       <div className="container justify-center mx-auto">
         <h1 className="text-cyan-600 font-black text-3xl text-center p-24 uppercase">
           Listado de Mascotas
         </h1>
-       
       </div>
       <table className="w-full border mt-4 px-4 py-5">
         <thead>
@@ -62,7 +65,7 @@ const ListadoSolicitudes = () => {
         <tbody>{content}</tbody>
       </table>
     </>
-  )
-}
+  );
+};
 
-export default ListadoSolicitudes
+export default ListadoSolicitudes;

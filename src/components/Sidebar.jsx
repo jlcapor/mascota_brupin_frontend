@@ -1,15 +1,23 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../redux/reducers/auth/authSlice";
+import { findPetsById } from "../redux/reducers/pets/petsSlice";
+import { authSelector } from "../redux/reducers/auth/authSlice";
 const Sidebar = () => {
-  const { user } = useSelector((state) => state.auth);
+  const userInfo = useSelector(authSelector);
+  const { user: currentUser } = userInfo;
+  const { id } = currentUser.datos;
   const dispatch = useDispatch();
 
   const logOut = useCallback(() => {
     dispatch(logout());
     dispatch(reset());
   }, [dispatch]);
+
+  useEffect(() => {
+    
+  }, [])
   return (
     <aside className="flex w-72 flex-col space-y-2 border-r-2  border-spacing-1 p-2">
       <div className=" mx-3 p-11 px-6  border-gray-200 justify-between items-center ">

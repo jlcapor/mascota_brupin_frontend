@@ -107,9 +107,9 @@ const Login = () => {
                 <span className="text-sm text-gray-700 pt-1">Remember Me</span>
               </label>
               <div className="w-1/2 text-right">
-                <a href="#" className="text-blue-500 text-sm tracking-tight">
+                <Link to="/cuenta/olvide-password" className="text-blue-500 text-sm tracking-tight">
                   Forget your password?
-                </a>
+                </Link>
               </div>
             </div>
             <div className="w-full md:w-full px-3 mb-6">
